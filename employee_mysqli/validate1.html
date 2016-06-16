@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+.error
+{
+	color:#FF0000;
+}
+</style>
+
+<body>
+<?php
+
+$emp_name=$emp_email=$emp_department="";
+$name_err=$email_err=$department_err="";
+
+if($_SERVER[REQUEST_METHOD]=="POST")
+{
+	if(empty($_POST["employee_name"]))
+	{
+		$name_err="enter the name";
+	}
+	else
+	{
+		$emp_name=test_input($_POST["name"]);
+		if(!preg_match("/^ [a-zA-Z ]*$/",$emp_name))
+		{
+			echo "enter valid name";
+		}
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+<h2>Enter the employee details</h2>
+
+<form action="insert.php" method="GET">
+employee_name:
+<input type="text" name="emp_name" />
+<br><br>
+
+employee_email:
+<input type="text" name="emp_email" />
+<br><br>
+
+employee_department: 
+<input type="text" name="emp_department" />
+<br><br>
+
+<input type="submit">
+</form> 
+
+</body>
+</html>
