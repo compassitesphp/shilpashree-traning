@@ -31,12 +31,12 @@ class Employee
 	}
 
 
-	public function update($tableName,$empId,$empName,$empEmail,$empDepartment)
+	public function update($tableName,$empId,$empName,$empEmail,$empDepartment,$conn)
 	{
 		$sqlQuery = "UPDATE $tableName SET emp_name='$empName',emp_email='$empEmail',emp_department=		  		'$empDepartment'
  					WHERE emp_id='$empId'";
 
- 		$result=query($sqlQuery);
+ 		$result=$conn->query($sqlQuery);
  		return $result;
 	}
 

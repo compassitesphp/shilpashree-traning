@@ -54,7 +54,7 @@
 								echo "<td>" . $row['emp_department'] . "</td>";
 echo "<td><a href=";
 echo "'http://localhost/employee_conn_class/edit2.php?emp_id=" . $row['emp_id'] . "'";
-echo "'>update</a></td>";
+echo "'>edit</a></td>";
 
 
 echo "<td><a href=";

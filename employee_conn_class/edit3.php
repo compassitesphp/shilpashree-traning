@@ -12,7 +12,7 @@ $empDepartment=$_GET['emp_department'];
 
 $tableName="employee_info";
 
-if(!$employee->update($tableName,$empId,$empName,$empEmail,$empDepartment,$conn)
+if(!$employee->update($tableName,$empId,$empName,$empEmail,$empDepartment,$conn))
 {
 	die('Error: ' . $conn->error());
 }
