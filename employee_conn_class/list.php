@@ -53,13 +53,14 @@
 								echo "<td>" . $row['emp_email'] . "</td>";
 								echo "<td>" . $row['emp_department'] . "</td>";
 echo "<td><a href=";
-echo "'http://localhost/employee_conn_class/edit2.php?emp_id=" . $row['emp_id'] . "'";
+echo "'http://localhost/shilpashree-traning/employee_conn_class/edit2.php?emp_id=" . $row['emp_id'] . "'";
 echo "'>edit</a></td>";
 
 
 echo "<td><a href=";
-echo "'http://localhost/employee_conn_class/edit2.php?emp_id=" . $row['emp_id'] . "'";
+echo "'http://localhost/shilpashree-traning/employee_conn_class/delete1.php?emp_id=" . $row['emp_id'] . "'";
 echo "'>delete</a></td>";
+
 								
 								//echo"<a href='http://localhost/employee_conn_class/delete.php'>delete</a> </td>";
 							echo "</tr>";

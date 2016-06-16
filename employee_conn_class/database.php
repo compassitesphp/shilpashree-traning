@@ -39,6 +39,15 @@ class Employee
  		$result=$conn->query($sqlQuery);
  		return $result;
 	}
+        
+        public function delete($tableName,$empId,$conn)
+        {
+            $sqlQuery="DELETE FROM $tableName WHERE emp_id='$empId'";
+            
+            $result=$conn->query($sqlQuery);
+             return $result;
+            
+        }
 
 }
 ?>
