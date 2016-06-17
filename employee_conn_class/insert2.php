@@ -20,6 +20,7 @@ if(!$employee->insert($tableName,$empId,$empName,$empEmail,$empDepartment,$conn)
 else
 
     echo " 1 record added  ";
+$conn->close();
 
 echo "<a href='http://localhost/shilpashree-traning/employee_conn_class/list.php'>   home page</a>" ;
 
