@@ -48,6 +48,18 @@ class Employee
              return $result;
             
         }
+        
+        
+        public function insert($tableName,$empId,$empName,$empEmail,$empDepartment,$conn)        
+        {
+            $sqlQuery="insert into $tableName "
+                    . "(emp_name, emp_email, emp_department) "
+                    . "values ('$empName','$empEmail','$empDepartment')";
+            
+            $result=$conn->query($sqlQuery);
+            return $result;
+            
+        }
 
 }
 ?>
