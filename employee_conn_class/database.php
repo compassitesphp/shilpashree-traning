@@ -60,7 +60,13 @@ class Employee
             return $result;
             
         }
+        
+        public function getEmployee($emipd, $conn)
+        {
+            $query="select * from employee_info where emp_id=" . $emipd;
+            $result=$conn->query($query);
+            return $result;
+        }
 
 }
 ?>
-		

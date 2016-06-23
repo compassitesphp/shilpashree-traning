@@ -7,34 +7,23 @@
 
 <h2>Delete the employee details</h2>
 
-<?php
-   $empId=$_GET['emp_id'];
-   $conn = new mysqli('localhost','shilpa','compass','employee');
-   //mysql_select_db('employee');
-   $sql = "SELECT * from employee_info where emp_id=$empId";
-   $response=$conn->query($sql);
-   $employeeInfo=$response->fetch_array();
 
-   $empId=$_GET['emp_id'];
-   $employeeName=$employeeInfo['emp_name'];
-   $employeeEmail=$employeeInfo['emp_email'];
-   $employeeDepartment=$employeeInfo['emp_department'];
-?>
+  
+
 
 <?php
   include 'database.php';
-  $empId=$_GET['emp_id'];
-
+  
+   $empId=$_GET['emp_id'];
+   
    $employee =new Employee("localhost","shilpa","compass","employee");
 
    $conn=$employee->connect();
    
-   $sql = "SELECT * from employee_info where emp_id=" . $empId;
-  
-   $response=$conn->query($sql);
+    $response=$employee->getEmployee($empId, $conn);
    $employeeInfo=$response->fetch_array();
 
-   //$empId=$_GET['emp_id'];
+  
    $employeeName=$employeeInfo['emp_name'];
    $employeeEmail=$employeeInfo['emp_email'];
    $employeeDepartment=$employeeInfo['emp_department'];

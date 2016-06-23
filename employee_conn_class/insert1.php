@@ -10,24 +10,7 @@
 
 <?php 
 
-$nameErr = $emailErr = "";
-$name = $email = $department="";
-
-
-	if ($_SERVER["REQUEST_METHOD"] == "POST") 
-	{
-	  	if (!empty($_POST["emp_name"])) 
-	  	{
-	    	 $name = test_input($_POST["emp_name"]);
-	    	// check if name only contains letters and whitespace
-	   		 if (!preg_match("/^[a-zA-Z ]*$/",$name))
-	    	 {
-	      		$nameErr = "Only letters and white space allowed";
-	     	 }
-	  	} 
-	  	else 
-	  	{
-	   		$nameErr = "Name is required";
+/* is required";
 	  	}
 	 } 
 
@@ -68,22 +51,24 @@ $name = $email = $department="";
 	  $data = htmlspecialchars($data);
 	  return $data;
 	}
+ 
+ */
 ?>
 
 
 <h2>Enter the employee details</h2>
 <p><span class="error">* required field.</span></p>
 
-	<form action="insert2.php" method="POST">
+	<form action="insert2.php" method="GET">
 
 		employee_name:
 		<input type="text" name="emp_name" >
-		<span class="error">* <?php echo $nameErr;?> </span>
+                <span class="error">* </span>
 		<br><br>
 
 		employee_email:
 		<input type="text" name="emp_email" >
-		<span class="error">* <?php echo $emailErr;?></span>
+                <span class="error">* </span>
 		<br><br>
 
 		employee_department: 
