@@ -32,13 +32,13 @@
    		<?php
 
                    include 'database.php';
-                   $employee =new Employee("localhost","shilpa","compass","employee");
+                   $employee =new Employee;
 
-                   $conn=$employee->connect();
+                  
 
 
                    $sql="select * from employee_info";
-		   $result=$conn->query($sql);
+		   $result=$employee->query($sql);
                    echo "<div class='container'>";
 		   echo "<h2>employee details</h2>";
 		   if ($result->num_rows > 0) 
@@ -62,8 +62,8 @@
 			 {
 
                             echo"<tr>";
-                                echo "<td>" . $row['emp_id'] . "</td>";
-                                echo "<td>" . $row['emp_name'] . "</td>";
+        echo "<td>" . $row['emp_id'] . "</td>";
+        echo "<td>" . $row['emp_name'] . "</td>";
                                 echo "<td>" . $row['emp_email'] . "</td>";
                                 echo "<td>" . $row['emp_department'] . "</td>";
                                 
@@ -94,7 +94,7 @@
 
  ?>
     <div class="container">
-        <form action="insert1.php" method="POST">
+        <form action="insert1.php" method="GET">
             <input type="submit" value="insert">
         </form> 
     </div>    

@@ -16,11 +16,11 @@
   
    $empId=$_GET['emp_id'];
    
-   $employee =new Employee("localhost","shilpa","compass","employee");
+   $employee =new Employee;
 
-   $conn=$employee->connect();
    
-    $response=$employee->getEmployee($empId, $conn);
+   
+    $response=$employee->getEmployee($empId);
    $employeeInfo=$response->fetch_array();
 
   

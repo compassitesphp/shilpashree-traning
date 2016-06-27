@@ -14,9 +14,9 @@
 
 
 include 'database.php';
-$employee =new Employee("localhost","shilpa","compass","employee");
+$employee =new Employee;
 
-$conn=$employee->connect();
+
 
 $empId=$_GET['emp_id'];
 $empName=$_GET['emp_name'];
@@ -25,6 +25,7 @@ $empDepartment=$_GET['emp_department'];
 
 $nameErr = $emailErr = "";
 $name = $email = $department="";
+
 	if ($_SERVER["REQUEST_METHOD"] == "GET") 
 	{
 	  	if (!empty($_GET["emp_name"])) 

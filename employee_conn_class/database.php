@@ -2,57 +2,51 @@
 
 class Employee {
 
-    private $servername;
-    private $username;
-    private $passward;
-    private $dbname;
+    private $servername='localhost';
+    private $username='shilpa';
+    private $passward='compass';
+    private $dbname='employee';
+    private $connection;
 
     //establishing the connection
-    public function __construct($servername, $username, $passward, $dbname) {
+    public function __construct() {
 
-        $this->$servername = $servername;
-        $this->username = $username;
-        $this->passward = $passward;
-        $this->dbname = $dbname;
-        
+       $this->connection = new mysqli($this->servername, $this->username, $this->passward, $this->dbname);
+        if ($this->connection->connect_error) {
+
+            die("connection failed" . $this->connection->connect_error);
+        } 
     }
 
-    public function connect() {
-        $conn = new mysqli($this->servername, $this->username, $this->passward, $this->dbname);
-        if ($conn->connect_error) {
+    
 
-            die("connection failed" . $conn->connect_error);
-        }
-        return $conn;
-    }
-
-    public function update($tableName, $empId, $empName, $empEmail, $empDepartment, $conn) {
+    public function update($tableName, $empId, $empName, $empEmail, $empDepartment) {
         $sqlQuery = "UPDATE $tableName SET emp_name='$empName',emp_email='$empEmail',emp_department=		  		'$empDepartment'
  					WHERE emp_id='$empId'";
 
-        $result = $conn->query($sqlQuery);
+        $result = $this->connection->query($sqlQuery);
         return $result;
     }
 
-    public function delete($tableName, $empId, $conn) {
+    public function delete($tableName, $empId) {
         $sqlQuery = "DELETE FROM $tableName WHERE emp_id='$empId'";
 
-        $result = $conn->query($sqlQuery);
+        $result = $this->connection->query($sqlQuery);
         return $result;
     }
 
-    public function insert($tableName, $empId, $empName, $empEmail, $empDepartment, $conn) {
+    public function insert($tableName, $empId, $empName, $empEmail, $empDepartment) {
         $sqlQuery = "insert into $tableName "
                 . "(emp_name, emp_email, emp_department) "
                 . "values ('$empName','$empEmail','$empDepartment')";
 
-        $result = $conn->query($sqlQuery);
+        $result = $this->connection->query($sqlQuery);
         return $result;
     }
 
-    public function getEmployee($emipd, $conn) {
-        $query = "select * from employee_info where emp_id=" . $emipd;
-        $result = $conn->query($query);
+    public function getEmployee($emipd) {
+        $sqlquery = "select * from employee_info where emp_id=" . $emipd;
+        $result = $this->connection->query($sqlquery);
         return $result;
     }
 

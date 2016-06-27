@@ -7,9 +7,9 @@
  */
 
 include 'database.php';
-$employee =new Employee("localhost","shilpa","compass","employee");
+$employee =new Employee;
 
-$conn=$employee->connect();
+
 
 $empId=$_GET['emp_id'];
 $empName=$_GET['emp_name'];
@@ -18,7 +18,7 @@ $empDepartment=$_GET['emp_department'];
 
 $tableName="employee_info";
 
-if(!$employee->delete($tableName,$empId,$conn))
+if(!$employee->delete($tableName,$empId))
 {
 	die('Error: ' . $conn->error());
 }
