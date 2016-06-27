@@ -1,11 +1,11 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html>
 <head>
    <title> Employee edit </title>
 </head>
 <body>
 
-<h2>Edit the employee details</h2>
+<h2>Edit the employee details</h2>-->
 
 
 
@@ -89,7 +89,7 @@ echo "<a href='http://localhost/shilpashree-traning/employee_conn_class/list.php
 
 
 ?>
-<form name ="update_form" action="insert3.php.php" method="GET">
+<!--<form name ="update_form" action="insert3.php.php" method="GET">
 employee_Id:
 <input type="text" name="emp_id" value="<?php echo $empId; ?>" />
 <br><br>
@@ -106,10 +106,10 @@ employee_department:
 <input type="text" name="emp_department" value="<?php echo $employeeDepartment; ?>" />
 <br><br> 
 
-<!-- <a><href='http://localhost/employee_conn_class/edit3.php?emp_id=" .$row['emp_id'] ."
+ <a><href='http://localhost/employee_conn_class/edit3.php?emp_id=" .$row['emp_id'] ."
 &emp_name=."  $row['emp_name'] ."
 &emp_email=." $row['emp_id'] ."
 &emp_department=."$row['emp_id'] ."'>update</a>
- -->
+ 
 <input type="submit" value="update">
-</form> 
+</form> -->
