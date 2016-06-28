@@ -25,9 +25,9 @@ if(!$employee->delete($tableName,$empId))
 else
 
 	echo "deleted  the record  ";
-$conn->close();
+
 
 echo "<a href='http://localhost/shilpashree-traning/employee_conn_class/list.php'>   home page</a>" ;
 
-
+$conn->close();
 ?>

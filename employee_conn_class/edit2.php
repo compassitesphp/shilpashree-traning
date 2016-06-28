@@ -11,31 +11,20 @@
         include 'database.php';
 
         $empId = $_GET['emp_id'];
-        // $conn = new mysqli('localhost','shilpa','compass','employee');
-        //mysql_select_db('employee');
-        //$sql = "SELECT * from employee_info where emp_id=$empId";
-        //$response=$conn->query($sql);
-        //$employeeInfo=$response->fetch_array();
+        
 
         $empId = $_GET['emp_id'];
         $employeeName = $employeeInfo['emp_name'];
         $employeeEmail = $employeeInfo['emp_email'];
         $employeeDepartment = $employeeInfo['emp_department'];
-        //$empId=$_GET['emp_id'];
+       
 
         $employee = new Employee;
-//i('localhost','shilpa','compass','employee');
-          //mysql_select_db('employee'); */
-        //$sql = "SELECT * from employee_info where emp_id=" . $empId;
-        /* echo "<pre>";
-          print_r($sql);
-          echo "</pre>";
-          exit;
-         */
+
         $response = $employee->getEmployee($empId);
         $employeeInfo = $response->fetch_array();
 
-        //$empId=$_GET['emp_id'];
+        
         $employeeName = $employeeInfo['emp_name'];
         $employeeEmail = $employeeInfo['emp_email'];
         $employeeDepartment = $employeeInfo['emp_department'];
@@ -59,11 +48,7 @@
             <input type="text" name="emp_department" value="<?php echo $employeeDepartment; ?>" />
             <br><br> 
 
-            <!-- <a><href='http://localhost/employee_conn_class/edit3.php?emp_id=" .$row['emp_id'] ."
-            &emp_name=."  $row['emp_name'] ."
-            &emp_email=." $row['emp_id'] ."
-            &emp_department=."$row['emp_id'] ."'>update</a>
-            -->
+            
             <input type="submit" value="update">
         </form> 
 

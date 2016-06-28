@@ -12,10 +12,21 @@ class Employee {
     public function __construct() {
 
        $this->connection = new mysqli($this->servername, $this->username, $this->passward, $this->dbname);
-        if ($this->connection->connect_error) {
+        if (mysqli_connect_errno())
+            {
+            die('ERROR : Failed to connect to the database');
+        }
+    } 
+    
+    
+     public function getAll() {
+        return mysqli_query($this->connection, "select * from employee_info");
+    }
 
-            die("connection failed" . $this->connection->connect_error);
-        } 
+     public function getEmployee($emipd) {
+        $sqlquery = "select * from employee_info where emp_id=" . $emipd;
+        $result = $this->connection->query($sqlquery);
+        return $result;
     }
 
     
@@ -35,7 +46,7 @@ class Employee {
         return $result;
     }
 
-    public function insert($tableName, $empId, $empName, $empEmail, $empDepartment) {
+    public function insert($tableName, $empName, $empEmail, $empDepartment) {
         $sqlQuery = "insert into $tableName "
                 . "(emp_name, emp_email, emp_department) "
                 . "values ('$empName','$empEmail','$empDepartment')";
@@ -44,11 +55,7 @@ class Employee {
         return $result;
     }
 
-    public function getEmployee($emipd) {
-        $sqlquery = "select * from employee_info where emp_id=" . $emipd;
-        $result = $this->connection->query($sqlquery);
-        return $result;
-    }
+   
 
 }
 
